@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & Open Source 완벽 가이드</title>
+    <!-- 프리텐다드 폰트 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <!-- 아이콘 (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- 좌측 사이드바 (데스크톱 메뉴) -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <i class="fa-brands fa-git-alt logo-icon"></i>
+                <span class="logo-text">Git Master</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-category">INTRO</div>
+                <a href="#home" class="nav-link active">
+                    <i class="fa-solid fa-house"></i> 홈
+                </a>
+                
+                <div class="nav-category">PART 1. 기초</div>
+                <a href="#part1" class="nav-link">
+                    <i class="fa-solid fa-book"></i> 오픈소스와 Git 기초
+                </a>
+
+                <div class="nav-category">PART 2. 관리</div>
+                <a href="#part2" class="nav-link">
+                    <i class="fa-solid fa-layer-group"></i> 3대 영역과 조작
+                </a>
+
+                <div class="nav-category">PART 3. 협업</div>
+                <a href="#part3" class="nav-link">
+                    <i class="fa-solid fa-code-branch"></i> 브랜치와 원격
+                </a>
+
+                <div class="nav-category">PART 4. 고급 (기말)</div>
+                <a href="#part4" class="nav-link">
+                    <i class="fa-solid fa-graduation-cap"></i> 고급 기능 & 심화
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Open Source SW Class</p>
+                <span>Final Exam Guide</span>
+            </div>
+        </aside>
+
+        <!-- 우측 메인 컨텐츠 -->
+        <main class="main-content">
+            <!-- 헤더 섹션 -->
+            <section id="home" class="hero-section">
+                <div class="hero-content">
+                    <div class="badge-hero">기말고사 대비</div>
+                    <h1>Git & Open Source <span class="gradient-text">Complete Guide</span></h1>
+                    <p class="subtitle">1강부터 30강까지의 모든 내용을 상세 설명과 배경 지식, 핵심 명령어로 정리했습니다.</p>
+                </div>
+            </section>
+
+            <div class="container">
+                <!-- PART 1: 기초 -->
+                <section id="part1" class="content-block">
+                    <div class="block-header">
+                        <span class="part-label">PART 1</span>
+                        <h2>오픈소스와 Git의 기초 (1~6강)</h2>
+                        <p>오픈소스의 철학과 Git의 탄생 배경, 그리고 필수 환경 설정</p>
+                    </div>
+
+                    <div class="card-row">
+                        <article class="card">
+                            <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+                            <h3>오픈소스 소프트웨어 (OSS)</h3>
+                            <p>소스코드가 공개되어 누구나 확인, 수정, 재배포할 수 있는 소프트웨어입니다. 단순한 '무료'가 아닌 <strong>자유(Freedom)</strong>와 <strong>집단지성</strong>을 강조합니다.</p>
+                        </article>
+                        <article class="card">
+                            <div class="card-icon"><i class="fa-brands fa-git-alt"></i></div>
+                            <h3>Git과 GitHub</h3>
+                            <ul class="feature-list sm">
+                                <li><strong>Git:</strong> 리누스 토발즈가 개발한 <strong>분산 버전 관리 시스템(DVCS)</strong>. 모든 개발자가 전체 코드 사본을 가집니다.</li>
+                                <li><strong>GitHub:</strong> Git 저장소 호스팅 및 개발자들의 SNS 역할을 하는 웹 서비스입니다.</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="card code-panel">
+                        <div class="panel-header"><i class="fa-solid fa-gear"></i> 필수 초기 설정 (최초 1회)</div>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <code>git config --global user.name "이름"</code>
+                                <span>사용자 이름 등록</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>git config --global user.email "메일"</code>
+                                <span>사용자 이메일 등록</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>git config --global core.autocrlf true</code>
+                                <span>줄바꿈 자동 변환 (윈도우 필수)</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>git config --global init.defaultBranch main</code>
+                                <span>기본 브랜치명을 main으로 설정</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- PART 2: 3대 영역 -->
+                <section id="part2" class="content-block">
+                    <div class="block-header">
+                        <span class="part-label">PART 2</span>
+                        <h2>버전 관리의 3대 영역과 조작 (7~12강)</h2>
+                        <p>Git의 핵심인 Working Directory, Staging Area, Repository의 이해</p>
+                    </div>
+
+                    <div class="card wide-card diagram-card">
+                        <h3><i class="fa-solid fa-diagram-project"></i> 3가지 핵심 영역 (The Three States)</h3>
+                        <div class="process-flow">
+                            <div class="step">
+                                <span class="step-label">Working Directory</span>
+                                <strong>작업 디렉토리</strong>
+                                <p>눈에 보이는 실제 작업 폴더<br>(버전 관리 전)</p>
+                            </div>
+                            <div class="arrow">
+                                <span>git add</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                            <div class="step">
+                                <span class="step-label">Staging Area</span>
+                                <strong>스테이징 영역</strong>
+                                <p>커밋할 파일을 올려두는<br>대기 장소 (Index)</p>
+                            </div>
+                            <div class="arrow">
+                                <span>git commit</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                            <div class="step">
+                                <span class="step-label">Repository</span>
+                                <strong>Git 저장소</strong>
+                                <p>버전이 영구 저장되는<br>.git 폴더</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="masonry-grid">
+                        <article class="card cmd-card">
+                            <h3>📄 파일 상태 생명주기</h3>
+                            <ul class="status-list">
+                                <li><span class="status-badge untracked">Untracked</span> Git이 추적하지 않는 새 파일</li>
+                                <li><span class="status-badge modified">Modified</span> 수정됐지만 스테이지에 없음</li>
+                                <li><span class="status-badge staged">Staged</span> 커밋 준비 완료된 상태</li>
+                            </ul>
+                        </article>
+
+                        <article class="card cmd-card">
+                            <h3>🔍 비교 (Diff) & 복구 (Restore)</h3>
+                            <dl>
+                                <dt>git diff</dt>
+                                <dd>작업 디렉토리 vs 스테이징 비교</dd>
+                                <dt>git diff --staged</dt>
+                                <dd>스테이징 vs 최신 커밋 비교</dd>
+                                <dt>git restore [파일]</dt>
+                                <dd>작업 내용 취소 (최근 스테이지 상태로)</dd>
+                                <dt>git restore --staged [파일]</dt>
+                                <dd>스테이징 내리기 (Unstage)</dd>
+                            </dl>
+                        </article>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- PART 3: 브랜치 -->
+                <section id="part3" class="content-block">
+                    <div class="block-header">
+                        <span class="part-label">PART 3</span>
+                        <h2>브랜치 전략과 원격 협업 (13~18강)</h2>
+                        <p>독립적인 작업 공간 브랜치와 GitHub 연동</p>
+                    </div>
+
+                    <div class="card-row">
+                        <article class="card">
+                            <h3>🏷 버전 태깅 (Tag)</h3>
+                            <p><strong>SemVer (v1.0.0)</strong> 형식을 따릅니다.</p>
+                            <div class="mini-code">
+                                <code>git tag v1.0</code> (Lightweight)<br>
+                                <code>git tag -a v1.0 -m "msg"</code> (Annotated)
+                            </div>
+                        </article>
+                        <article class="card">
+                            <h3>🌿 브랜치 (Branch)</h3>
+                            <p>원본을 건드리지 않고 독립적으로 작업하기 위한 복사본.</p>
+                            <div class="mini-code">
+                                <code>git switch -c [이름]</code> (생성 및 이동)<br>
+                                <strong>HEAD:</strong> 현재 브랜치의 최신 커밋 포인터
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="card warning-card">
+                        <h3><i class="fa-solid fa-cloud"></i> 원격 저장소 (Remote) 핵심</h3>
+                        <ul>
+                            <li><strong>Clone:</strong> 원격 저장소 복제 (<code>git clone</code>)</li>
+                            <li><strong>Push:</strong> 로컬 커밋 업로드 (<code>git push origin [브랜치]</code>)</li>
+                            <li><strong>Pull:</strong> 가져와서 <strong>자동 병합</strong> (<code>git pull</code>)</li>
+                            <li><strong>Fetch:</strong> 가져오기만 하고 병합 안 함 (<code>git fetch</code>)</li>
+                            <li class="mt-2"><strong>Tip:</strong> 2021년부터 패스워드 대신 <strong>PAT (토큰)</strong> 인증 필수</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr class="divider">
+
+                <!-- PART 4: 고급 (기말) -->
+                <section id="part4" class="content-block highlight-section">
+                    <div class="block-header">
+                        <span class="part-label final-exam">기말 핵심</span>
+                        <h2>고급 기능 및 라이선스 (19~30강)</h2>
+                        <p>라이선스, Stash, 병합 전략, Rebase, 그리고 Reset vs Revert</p>
+                    </div>
+
+                    <!-- 라이선스 -->
+                    <article class="card">
+                        <h3>⚖️ 오픈소스 라이선스 심화</h3>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>Copyleft (강한 의무)</th>
+                                    <th>Permissive (약한 의무)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>특징</strong></td>
+                                    <td>코드 수정 시 <strong>공개 의무</strong> 발생</td>
+                                    <td>공개 의무 거의 없음, 자유로운 사용</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>종류</strong></td>
+                                    <td><strong>GPL</strong> (2차 저작물도 공개), LGPL</td>
+                                    <td><strong>MIT</strong>, Apache (특허 조항 포함)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+
+                    <!-- Stash & Merge -->
+                    <div class="card-row mt-4">
+                        <article class="card">
+                            <h3>📦 임시 저장 (Stash)</h3>
+                            <p>작업 중 급하게 브랜치를 이동해야 할 때 사용</p>
+                            <dl>
+                                <dt>git stash</dt>
+                                <dd>스택에 임시 저장 후 작업 트리 비움</dd>
+                                <dt>git stash pop</dt>
+                                <dd>불러오고 목록에서 <strong>삭제</strong></dd>
+                                <dt>git stash apply</dt>
+                                <dd>불러오고 목록에 <strong>유지</strong></dd>
+                            </dl>
+                        </article>
+                        <article class="card">
+                            <h3>🔀 병합 (Merge) 3가지 전략</h3>
+                            <ul class="feature-list">
+                                <li><strong>Fast-forward:</strong> 일렬 상태, 포인터만 이동</li>
+                                <li><strong>3-way Merge:</strong> 갈라진 브랜치, <strong>새 커밋</strong> 생성</li>
+                                <li><strong>Squash Merge:</strong> 모든 커밋을 하나로 뭉쳐서 병합</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <!-- Rebase -->
+                    <article class="card mt-4">
+                        <h3>이력 수정: Rebase & Amend</h3>
+                        <ul>
+                            <li><strong>Rebase:</strong> 브랜치의 베이스를 변경하여 이력을 <strong>선형(한 줄)</strong>으로 만듦. (원격 커밋 금지)</li>
+                            <li><strong>Amend:</strong> <code>git commit --amend</code>로 최신 커밋 메시지나 내용 수정.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Reset vs Revert -->
+                    <div class="card vs-card mt-4">
+                        <h3>⚡️ [★중요] 되돌리기: Reset vs Revert</h3>
+                        <p class="vs-desc">가장 시험에 자주 나오는 핵심 포인트입니다.</p>
+                        
+                        <div class="vs-container">
+                            <div class="vs-box reset">
+                                <h4><i class="fa-solid fa-backward"></i> Reset (되돌리기)</h4>
+                                <p class="concept">"아예 없던 일로 만들기"</p>
+                                <ul>
+                                    <li>과거 시점으로 이동, <strong>이후 이력 삭제</strong></li>
+                                    <li>혼자 작업하는 로컬 저장소에서 사용</li>
+                                    <li><strong>옵션:</strong>
+                                        <ul>
+                                            <li><code>--hard</code> (모두 삭제)</li>
+                                            <li><code>--mixed</code> (변경내용 남김-기본값)</li>
+                                            <li><code>--soft</code> (커밋만 취소, 스테이지 유지)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="vs-badge">VS</div>
+                            <div class="vs-box revert">
+                                <h4><i class="fa-solid fa-rotate-left"></i> Revert (취소)</h4>
+                                <p class="concept">"실수 정정 커밋 만들기"</p>
+                                <ul>
+                                    <li>반대 작업을 수행하는 <strong>새 커밋 생성</strong></li>
+                                    <li><strong>이력 보존</strong>됨 (협업 시 안전)</li>
+                                    <li>이미 원격(Push)된 커밋을 취소할 때 필수</li>
+                                    <li><code>--no-edit</code>: 메시지 자동 생성</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <p>© 2024 Open Source Software Class. Final Exam Preparation Guide.</p>
+            </footer>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
