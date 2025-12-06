@@ -10,7 +10,7 @@
     --header-height: 60px;
     --sidebar-width: 280px;
     
-    --code-bg: #0d1117;
+    --code-bg: #0d1117; 
     --badge-red: #ff7b72;
     --badge-green: #3fb950;
     --warning: #d29922;
@@ -165,6 +165,7 @@ body {
 .gradient-text {
     background: linear-gradient(90deg, #58a6ff, #bc8cff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -187,7 +188,7 @@ body {
     scroll-margin-top: 2rem;
 }
 
-.part-label {
+.part-label, .week-label {
     display: inline-block;
     font-size: 0.85rem;
     font-weight: 700;
@@ -197,7 +198,7 @@ body {
     letter-spacing: 1px;
 }
 
-.part-label.final-exam {
+.part-label.final-exam, .week-label.final-exam {
     color: var(--purple);
 }
 
@@ -554,6 +555,63 @@ body {
 .vs-box.reset h4 { color: var(--badge-red); }
 .vs-box.revert { border-color: rgba(63, 185, 80, 0.3); }
 .vs-box.revert h4 { color: var(--badge-green); }
+
+/* Reset Options */
+.reset-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.option-box {
+    background: rgba(255,255,255,0.03);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.option-box strong {
+    display: block;
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+}
+
+.option-box p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.option-box.danger {
+    border-color: rgba(255, 123, 114, 0.3);
+}
+
+.option-box.danger strong {
+    color: var(--badge-red);
+}
+
+/* Code blocks in cards */
+.card pre {
+    background: var(--code-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.card pre code {
+    color: var(--accent);
+    background: transparent;
+    padding: 0;
+}
 
 footer {
     text-align: center;
