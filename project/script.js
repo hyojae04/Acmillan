@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: window.innerWidth > 768 ? mainContent : null, // 모바일은 viewport 기준
         threshold: 0.2, // 20% 이상 보일 때 감지
-        rootMargin: "-10% 0px -70% 0px" // 상단 일부 여유 두고 하단은 무시하여 상단 컨텐츠 집중
+        rootMargin: "-20% 0px -40% 0px" // 상단 일부 여유 두고 하단은 무시하여 상단 컨텐츠 집중
     };
 
     const observer = new IntersectionObserver((entries) => {
